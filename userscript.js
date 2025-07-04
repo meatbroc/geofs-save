@@ -27,7 +27,7 @@
 		Xe.m = (geofs.preferences.save = {
 			as: d.pr.as,
 			al: d.pr.al,
-			lp: () => d.p.forEach(p => (o.color = geofs.api.color.mixArray(flight.recorder.pathColors, clamp(p[1][2] / 15e3, 0, 1)).toCssHexString(), L.polyline(p, o).addTo(g))),
+			lp: () => d.p.forEach(p => (o.color = geofs.api.color.mixArray(flight.recorder.pathColors, clamp(p[1][2] / 15e3, 0, 1)).toCssHexString(), flight.recorder.mapPath.unshift(L.polyline(p, o).addTo(g)))),
 			lf: () => d.fp?.a?.[0] && f.import(d.fp.a),
 		});
 		d.pr.al ? (Xe.m.lf(), g.whenReady(Xe.m.lp)) : $("<style>.save-btn{display: block !important}</style>").appendTo("head");
