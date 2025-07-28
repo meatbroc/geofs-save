@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         GeoFS Save
-// @version      1.2.0
+// @version      1.2.1
 // @description  Saves important parameters, such as autopilot, flight path, and flight plan
 // @author       meatbroc
 // @match        https://www.geo-fs.com/geofs.php*
@@ -18,8 +18,8 @@
                 localStorage.setItem("s", JSON.stringify(a));
 			} catch (e) { e = ''+e, Xe.l("ERR: " + e, "LOC STOR", "warn"), localStorage.setItem("s", JSON.stringify({e})) }
 		};
-		Xe.a("unload", s);
-		Xe.f("saveStarted");
+		const O = flight.recorder.clearPath;
+        flight.recorder.clearPath = () => { O(), flight.recorder.mapPath = [] }, Xe.a("unload", s), Xe.f("saveStarted");
 		const d = JSON.parse(localStorage.getItem("s")) || {};
         if (d.e) return Xe.l("Last save err: " + (d?.e || "none"), "LOC STOR");
 		const f = geofs.flightPlan, g = geofs.api.map._map, o = {weight: 4};
