@@ -24,7 +24,7 @@
         if (d.e) return Xe.l("Last save err: " + (d?.e || "none"), "LOC STOR");
 		const f = geofs.flightPlan, g = geofs.api.map._map, o = {weight: 4};
 		if (!Object.keys(d).length) d.pr = {}, d.pr.al = d.pr.as = !0, d.p = [];
-		geofs.preferences.save = { as: d.pr.as, al: d.pr.al },
+		geofs.preferences.save = { as: d.pr?.as ?? !0, al: d.pr?.al ?? !0 },
 		geofs.save = { lp: () => d.p.forEach(p => (o.color = geofs.api.color.mixArray(flight.recorder.pathColors, clamp(p[1][2] / 15e3, 0, 1)).toCssHexString(), flight.recorder.mapPath.unshift(L.polyline(p, o).addTo(g)))), lf: () => d.fp?.a?.[0] && f.import(d.fp.a) };
 		d.pr.al ? (geofs.save.lf(), $(document).one("flyto", geofs.save.lp)) : $("<style>.save-btn{display: block !important}</style>").appendTo("head");
 		$("<li/>", {class: "geofs-list-collapsible-item"}).html(`Save<div class="geofs-collapsible"> <fieldset>
