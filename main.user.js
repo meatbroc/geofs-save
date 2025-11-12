@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         GeoFS Save
-// @version      1.2.1
+// @version      1.2.2
 // @description  Saves important parameters, such as autopilot, flight path, and flight plan
 // @author       meatbroc
 // @match        https://www.geo-fs.com/geofs.php*
